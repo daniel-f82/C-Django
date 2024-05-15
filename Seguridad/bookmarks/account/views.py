@@ -53,8 +53,8 @@ def register(request):
         if user_form.is_valid():
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
-            new_user.saved()
-
+           ### new_user.saved()     ### Estado TIEMPO
+            new_user.save()     ### Estado TIEMPO Corregido
             Profile.objects.create(user=new_user)
             return render (
                 request,
